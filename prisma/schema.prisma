@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Market {
+  id              Int      @id @default(autoincrement())
+  name            String
+  address         String   @unique
+  expiry          DateTime?
+  pt              String
+  yt              String
+  sy              String
+  underlyingAsset String
+  liquidity       Decimal  @db.Decimal(20, 8)
+  pendleApy       Decimal  @map("pendle_apy") @db.Decimal(10, 8)
+  impliedApy      Decimal  @map("implied_apy") @db.Decimal(10, 8)
+  yieldRangeMin   Decimal  @map("yield_range_min") @db.Decimal(10, 8)
+  yieldRangeMax   Decimal  @map("yield_range_max") @db.Decimal(10, 8)
+  aggregatedApy   Decimal  @map("aggregated_apy") @db.Decimal(10, 8)
+  maxBoostedApy   Decimal  @map("max_boosted_apy") @db.Decimal(10, 8)
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("markets")
+}

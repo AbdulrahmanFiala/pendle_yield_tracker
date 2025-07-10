@@ -45,6 +45,20 @@ class PrismaDatabase {
       throw error;
     }
   }
+
+  // Add this method to get all markets address from the database
+  static async getAllMarketsAddresses() {
+    try {
+      const markets = await prisma.market.findMany({
+        orderBy: { liquidity: "desc" },
+        select: { address: true },
+      });
+      return markets;
+    } catch (error) {
+      console.error("Error fetching all markets:", error);
+      throw error;
+    }
+  }
 }
 
 module.exports = PrismaDatabase;

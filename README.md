@@ -41,6 +41,7 @@ npm start
 
 ## API Endpoints
 
-- `GET /api/yields` - Get all market yields and store them in MySQL database
+- `GET /api/yields` - Fetches all market yields from Pendle, stores them in MySQL, and returns the data. This logic also runs automatically on server startup.
+- `GET /api/apy-history` - Returns daily APY history for all markets in the database. Accepts optional `timestamp_start` and `timestamp_end` query parameters (defaults to the last 5 days).
 - `GET /health` - Health check endpoint
 - `GET /` - API information

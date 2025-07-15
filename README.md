@@ -31,9 +31,19 @@ DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=pendle_yields
 DB_PORT=your_db_port
+DATABASE_URL="mysql://your_username:your_password@localhost:your_db_port/pendle_yields"
 ```
 
-### 3. Run the Server
+### 3. Generate Prisma Client and Run Migrations
+
+After setting up your `.env` file, run the following commands to generate the Prisma client and create the necessary tables in your database:
+
+```bash
+npx prisma generate
+npx prisma migrate deploy
+```
+
+### 4. Run the Server
 
 ```bash
 npm start

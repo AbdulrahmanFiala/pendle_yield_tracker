@@ -1,6 +1,14 @@
-# Pendle Yield Tracker 
+A Node.js backend project with MySQL that interacts with [Pendle Finance](https://pendle.finance/) to fetch, store, and serve historical yield (APY) data for various DeFi markets.
 
-A simple API to track Pendle Finance yields on Base chain using MySQL database.
+
+## 🚀 Features
+
+- **Automatic Yield Sync on Startup**  
+  On server start, fetches the latest market yields from Pendle and stores them in the MySQL database.
+
+- **REST API Endpoints**  
+  Provides endpoints for fetching the latest market yields and historical APY data.
+
 
 ## Setup
 
